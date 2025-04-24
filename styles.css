@@ -16,7 +16,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
     gap: 8px;
-    max-width: 800px; /* Adjust as needed */
+    max-width: 800px; 
     margin-bottom: 20px;
 }
 
@@ -34,32 +34,214 @@ h1 {
 }
 
 .color-swatch.selected {
-    border: 3px solid #007bff; /* Highlight selected swatches */
-    box-sizing: border-box; /* Include border in element's total width and height */
+    border: 3px solid #007bff; 
+    box-sizing: border-box; 
 }
 
-
-#tray {
+#tray, #animal-tray, #cartoon-tray, #movie-tray, #sequel-tray, #ai-picture-tray, 
+#gem-tray, #creation-tray, #food-tray, #magic-tray {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
     padding: 15px;
     border: 2px dashed #ccc;
-    min-height: 60px;
+    min-height: 100px;
     width: 100%;
-    max-width: 400px;
+    max-width: 800px; 
     box-sizing: border-box;
-    justify-content: center; /* Center tray colors */
+    justify-content: flex-start; 
     align-items: center;
     background-color: #fff;
+    overflow-x: auto; 
+    flex-wrap: wrap; 
 }
 
-.tray-color {
+.tray-color, .tray-animal, .tray-cartoon, .tray-movie, .tray-sequel, 
+.tray-ai-picture, .tray-gem, .tray-creation, .tray-food, .tray-magic {
+    min-width: 50px; 
+    max-width: 80px; 
+    width: auto; 
+    height: 60px; 
+    flex-shrink: 0; 
+}
+
+#animal-palette, #cartoon-palette, #movie-palette, #sequel-palette,
+#ai-picture-palette, #gem-palette, #creation-palette, #food-palette, #magic-palette {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 8px;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.animal-swatch {
     width: 50px;
     height: 50px;
-    border: 2px solid #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
     border-radius: 5px;
+}
+
+.animal-emoji {
+    font-size: 1.8em;
+}
+
+.animal-swatch:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
+
+.animal-swatch.selected {
+    border: 3px solid #007bff;
+}
+
+.cartoon-swatch, .movie-swatch, .sequel-swatch {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.cartoon-emoji, .movie-emoji, .sequel-emoji {
+    font-size: 1.8em;
+}
+
+.cartoon-swatch:hover, .movie-swatch:hover, .sequel-swatch:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
+
+.cartoon-swatch.selected, .movie-swatch.selected, .sequel-swatch.selected {
+    border: 3px solid #007bff;
+}
+
+.ai-picture-swatch {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.ai-picture-swatch img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ai-picture-swatch:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
+
+.ai-picture-swatch.selected {
+    border: 3px solid #007bff;
+}
+
+.gem-swatch, .creation-swatch {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.gem-swatch img, .creation-swatch img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gem-swatch:hover, .creation-swatch:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
+
+.gem-swatch.selected, .creation-swatch.selected {
+    border: 3px solid #007bff;
+}
+
+.food-swatch {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.food-emoji {
+    font-size: 1.8em;
+}
+
+.food-swatch:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
+
+.food-swatch.selected {
+    border: 3px solid #007bff;
+}
+
+.magic-swatch {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.magic-emoji {
+    font-size: 1.8em;
+}
+
+.magic-swatch:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
+
+.magic-swatch.selected {
+    border: 3px solid #007bff;
 }
 
 button {
@@ -94,7 +276,7 @@ input[type="text"] {
     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     gap: 10px;
     margin-top: 20px;
-    max-width: 800px; /* Adjust as needed */
+    max-width: 800px; 
 }
 
 .gallery-color {
@@ -103,7 +285,7 @@ input[type="text"] {
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    position: relative; /* For delete button positioning */
+    position: relative; 
 }
 
 .delete-button {
@@ -128,3 +310,220 @@ h2 {
     color: #555;
 }
 
+#animal-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+    gap: 15px;
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+.gallery-animal {
+    width: 100px;
+    height: 120px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.gallery-animal svg {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.animal-name-label {
+    font-size: 0.75em;
+    margin-top: 5px;
+    text-align: center;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.animal-image {
+    max-width: 100%;
+    max-height: 80px;
+    border-radius: 5px;
+}
+
+.loading-indicator {
+    padding: 10px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+.fallback-animal {
+    font-size: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+
+#cartoon-gallery, #movie-gallery, #sequel-gallery, #ai-picture-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+.gallery-cartoon, .gallery-movie, .gallery-sequel, .gallery-ai-picture {
+    width: 100px;
+    height: 120px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.gallery-cartoon svg, .gallery-movie svg, .gallery-sequel svg, .gallery-ai-picture svg {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.cartoon-name-label, .movie-name-label, .sequel-name-label, .ai-picture-name-label {
+    font-size: 0.75em;
+    margin-top: 5px;
+    text-align: center;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cartoon-image, .movie-image, .sequel-image, .ai-picture-image {
+    max-width: 100%;
+    max-height: 80px;
+    border-radius: 5px;
+}
+
+.ai-picture-image {
+    max-width: 100%;
+    max-height: 80px;
+    border-radius: 5px;
+}
+
+#gem-gallery, #creation-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+.gallery-gem, .gallery-creation {
+    width: 100px;
+    height: 120px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.gem-image, .creation-image, .food-image {
+    max-width: 100%;
+    max-height: 80px;
+    border-radius: 5px;
+}
+
+.gem-name-label, .creation-name-label, .food-name-label {
+    font-size: 0.75em;
+    margin-top: 5px;
+    text-align: center;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.creation-mixer-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+#food-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+.gallery-food {
+    width: 100px;
+    height: 120px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px;
+    overflow: hidden;
+}
+
+#magic-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+.gallery-magic {
+    width: 100px;
+    height: 120px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.magic-image {
+    max-width: 100%;
+    max-height: 80px;
+    border-radius: 5px;
+}
+
+.magic-name-label {
+    font-size: 0.75em;
+    margin-top: 5px;
+    text-align: center;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
